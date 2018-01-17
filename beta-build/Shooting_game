@@ -17,13 +17,14 @@ bullets = []
 ebullets = []
 player = 0
 
-while len(stars) <= 50:
+while len(stars) <= 75:
     stars.append(PVector(random(1, 699), random(1, 699)))
 
 
 def setup():
     size(700, 700)
     background(255)
+    frameRate(60)
 
 
 # setup and draw
