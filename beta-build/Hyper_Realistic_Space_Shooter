@@ -47,7 +47,6 @@ def draw():
     global bul_size
     global enetime
 
-
     # main menu
     if menu == 0:
         background(0)
@@ -116,7 +115,7 @@ def draw():
                     ene.x += enemyspeed[index].x
                     ene.y += enemyspeed[index].y
 
-         # shoot speed
+                # shoot speed
                 if len(enetime) >= 1:
                     if millis() >= enetime[index] + random(300, 700):
                         ebullets.append(PVector(ene.x, ene.y))
@@ -151,7 +150,7 @@ def draw():
                         ebullets.pop(index)
                         bulletspeed.pop(index)
 
-              # if bullets hit player
+                    # if bullets hit player
                     if PVector.sub(ebul, player).mag() <= 9:
                         bulletspeed.pop(index)
                         ebullets.remove(ebul)
@@ -182,7 +181,7 @@ def draw():
                     enetime.pop(index)
                     enemies.remove(ene)
                     bullets.remove(bul)
-                    
+
         # hi-score
         if score > hiscore:
             hiscore = score
@@ -213,7 +212,7 @@ def draw():
         ebullets = []
         menu = 3
 
-   # help
+    # help
     if menu == 2:
         textSize(20)
         stroke(32)
