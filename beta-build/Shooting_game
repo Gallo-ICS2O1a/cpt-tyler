@@ -47,20 +47,27 @@ def draw():
     global bul_size
     global enetime
 
-    background(255)
+
     # main menu
     if menu == 0:
+        background(0)
+        stroke(255)
+        for star in stars:
+            point(star.x, star.y)
         cursor()
-        stroke(0)
-        fill(0)
+        textSize(38)
+        fill(255)
+        text("HYPER REALISTIC SPACE SHOOTER", 35, 200)
         textSize(32)
         rect(250, 350, 200, 40)
         rect(250, 400, 200, 40)
         rect(250, 450, 200, 40)
-        fill(255)
+        fill(0)
         text("START", 300, 380)
-        text("HELP", 310, 430)
-        text("OTHER", 295, 480)
+        textSize(27)
+        text("INSTRUCTIONS", 255, 430)
+        text("OTHER MODES", 255, 480)
+        textSize(32)
 
         # menu hitbox
         if mouseX >= 250 and mouseX <= 450 and mouseY <= 450 and mouseY >= 400:
@@ -73,7 +80,7 @@ def draw():
                 nohit = 0
                 life = 3
 
-        if mouseX >= 250 and mouseX <= 450 and mouseY <= 510 and mouseY >= 450:
+        if mouseX >= 250 and mouseX <= 450 and mouseY <= 490 and mouseY >= 450:
             if mousePressed == True:
                 menu = 5
 
@@ -87,7 +94,7 @@ def draw():
             point(star.x, star.y)
 
         # sprites
-        stroke(0)
+        noStroke()
         player = PVector(mouseX, mouseY)
         fill(240, 0, 0)
         ellipse(mouseX, mouseY, 15, 15)
@@ -175,15 +182,21 @@ def draw():
                     enetime.pop(index)
                     enemies.remove(ene)
                     bullets.remove(bul)
+                    
+        # hi-score
+        if score > hiscore:
+            hiscore = score
 
         # score
         fill(255)
-        textSize(32)
-        text(score, 10, 30)
-
+        textSize(25)
+        text("Score:", 10, 25)
+        text(score, 85, 25)
+        text("Hi-Score:", 10, 55)
+        text(hiscore, 125, 55)
         # lives
-        text("Lives:", 585, 40)
-        text(life, 670, 40)
+        text("Lives:", 615, 25)
+        text(life, 680, 25)
 
     # pause function
     if keyPressed == True:
@@ -193,8 +206,6 @@ def draw():
     # run out of lives
     if life <= 0:
         bulletspeed = []
-        if score > hiscore:
-            hiscore = score
         enemyspeed = []
         enetime = []
         enemies = []
@@ -249,6 +260,7 @@ You have 3 lives, when you lose all 3 you die.""", 50, 70)
 
         # death menu "menu"
         fill(200, 0, 0)
+        textSize(32)
         text("You Died", 280, 210)
         fill(0)
         text("Score:", 230, 265)
@@ -294,14 +306,21 @@ You have 3 lives, when you lose all 3 you die.""", 50, 70)
 
     # Other menu
     if menu == 5:
-        background(255)
+        background(0)
+        stroke(255)
+        for star in stars:
+            point(star.x, star.y)
+        textSize(38)
+        fill(255)
+        text("HYPER REALISTIC SPACE SHOOTER", 35, 200)
+        textSize(32)
         cursor()
         noStroke()
-        fill(0)
+        fill(255)
         rect(250, 350, 200, 40)
         rect(250, 400, 200, 40)
         rect(250, 300, 200, 40)
-        fill(255)
+        fill(0)
         text("BACK", 305, 330)
         text("PACIFIST", 285, 380)
         text("1 LIFE", 300, 430)
@@ -317,7 +336,7 @@ You have 3 lives, when you lose all 3 you die.""", 50, 70)
                 nohit = 1
                 life = 3
 
-        if mouseX >= 250 and mouseX <= 450 and mouseY <= 450 and mouseY >= 400:
+        if mouseX >= 250 and mouseX <= 450 and mouseY <= 440 and mouseY >= 400:
                 if mousePressed == True:
                     menu = 1
                     nohit = 0
