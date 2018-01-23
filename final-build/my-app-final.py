@@ -102,7 +102,7 @@ def draw():
 
     # enemy spawn
         enemyspawn = random(0, 1000)
-        if enemyspawn >= 990 and score <= 49 or enemyspawn >= 985 and score >= 50 or enemyspawn >= 980 and score >= 125 or enemyspawn >= 975 and score >= 200 or enemyspawn >= 970 and score >= 300:
+        if enemyspawn >= 985 and score <= 49 or enemyspawn >= 975 and score >= 50 or enemyspawn >= 970 and score >= 100 or enemyspawn >= 965 and score >= 200 or enemyspawn >= 970 and score >= 300:
             enemies.append(PVector(random(15, 685), -15))
             enetime.append(millis())
             enemyspeed.append(PVector(random(-1, 1), random(2, 3)))
